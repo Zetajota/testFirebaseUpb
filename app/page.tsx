@@ -1,69 +1,127 @@
-import Image from "next/image";
+const modes = [
+  {
+    number: "01",
+    title: "Juega a tu manera",
+    description:
+      "Partidos casuales, competitivos y modos extra. Siempre hay una cancha para ti.",
+    icon: "↗",
+  },
+  {
+    number: "02",
+    title: "Sube de rango",
+    description:
+      "Perfecciona tus toques, domina el aire y escala en el modo competitivo.",
+    icon: "↑",
+  },
+  {
+    number: "03",
+    title: "Arma tu estilo",
+    description:
+      "Personaliza tu auto con miles de objetos y entra a la cancha con todo.",
+    icon: "✳",
+  },
+];
+
+function RocketBall() {
+  return (
+    <div className="arena-art" aria-hidden="true">
+      <div className="arena-sun" />
+      <div className="arena-ring arena-ring-one" />
+      <div className="arena-ring arena-ring-two" />
+      <div className="arena-floor" />
+      <div className="ball-shadow" />
+      <div className="soccer-ball">
+        <span className="ball-panel ball-panel-one" />
+        <span className="ball-panel ball-panel-two" />
+        <span className="ball-panel ball-panel-three" />
+      </div>
+      <svg className="rocket-car" viewBox="0 0 440 210" fill="none">
+        <path d="M56 126 86 83c9-13 22-22 38-25l104-16c23-4 46 4 62 21l42 44 48 14c12 4 20 15 20 27v14H48v-18c0-8 2-14 8-18Z" fill="#c7ff3d" />
+        <path d="m130 65 97-15c21-3 41 4 55 19l25 28H104l15-21c3-5 7-9 11-11Z" fill="#173344" />
+        <path d="m237 51-8 46h78l-25-28c-12-12-27-18-45-18Z" fill="#244e61" />
+        <path d="M45 143h359v25H45z" fill="#a2dc26" />
+        <path d="M52 132h43v11H52zM358 132h42v11h-42z" fill="#ff794d" />
+        <circle cx="124" cy="169" r="31" fill="#111c2a" />
+        <circle cx="124" cy="169" r="14" fill="#b7c4c8" />
+        <circle cx="334" cy="169" r="31" fill="#111c2a" />
+        <circle cx="334" cy="169" r="14" fill="#b7c4c8" />
+        <path d="m44 152-25-9 21-8M401 152l25-9-22-8" stroke="#ff794d" strokeWidth="8" strokeLinecap="round" />
+        <path d="m17 136-14-7m22 20-18 1" stroke="#ffb64d" strokeWidth="6" strokeLinecap="round" />
+      </svg>
+      <span className="art-label">A TODO GAS</span>
+      <span className="art-coordinate">ARENA / 01</span>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main>
+      <header className="site-header">
+        <a className="brand" href="#inicio" aria-label="Rocket League, inicio">
+          <span className="brand-mark">RL</span>
+          <span>ROCKET<span className="brand-light">LEAGUE</span></span>
+        </a>
+        <nav className="main-nav" aria-label="Navegación principal">
+          <a href="#juego">El juego</a>
+          <a href="#modos">Modos</a>
+          <a href="#jugar">Cómo jugar</a>
+        </nav>
+        <a className="header-cta" href="https://www.rocketleague.com/" target="_blank" rel="noreferrer">
+          Sitio oficial <span aria-hidden="true">↗</span>
+        </a>
+      </header>
+
+      <section className="hero" id="inicio">
+        <div className="hero-copy">
+          <div className="eyebrow"><span /> FÚTBOL. AUTOS. PURA ADRENALINA.</div>
+          <h1>EL GOL<br />VA <span>POR EL AIRE.</span></h1>
+          <p className="hero-description">
+            Acelera, vuela y conviértete en leyenda. El campo está listo; ahora solo faltas tú.
           </p>
+          <div className="hero-actions" id="jugar">
+            <a className="button button-primary" href="https://www.rocketleague.com/" target="_blank" rel="noreferrer">
+              JUEGA GRATIS <span aria-hidden="true">↗</span>
+            </a>
+            <a className="text-link" href="#juego">DESCUBRE EL JUEGO <span aria-hidden="true">↓</span></a>
+          </div>
+          <div className="hero-note"><span className="note-icon">✦</span> GRATIS PARA JUGAR <span className="note-divider">/</span> COMPETENCIA SIN LÍMITES</div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <RocketBall />
+        <div className="hero-index"><span>01</span> / 03</div>
+      </section>
+
+      <section className="intro-section" id="juego">
+        <div className="section-kicker">EL JUEGO</div>
+        <div className="intro-copy">
+          <h2>Un auto. Una pelota.<br /><span>Un estadio entero.</span></h2>
+          <p>Rocket League combina la emoción del fútbol con autos propulsados por cohetes. Entra, acelera y juega en partidas rápidas donde cada segundo puede cambiarlo todo.</p>
         </div>
-      </main>
-    </div>
+        <div className="stat-block"><strong>5<span> min</span></strong><small>POR PARTIDA</small></div>
+      </section>
+
+      <section className="modes-section" id="modos">
+        <div className="modes-heading">
+          <div><div className="section-kicker">TU PRÓXIMA JUGADA</div><h2>LA CANCHA <span>ES TUYA.</span></h2></div>
+          <p>Fácil de empezar.<br />Imposible de soltar.</p>
+        </div>
+        <div className="mode-grid">
+          {modes.map((mode) => (
+            <article className="mode-card" key={mode.number}>
+              <div className="mode-top"><span>{mode.number} / EXPERIENCIA</span><span className="mode-icon">{mode.icon}</span></div>
+              <h3>{mode.title}</h3>
+              <p>{mode.description}</p>
+              <a href="https://www.rocketleague.com/" target="_blank" rel="noreferrer" aria-label={`Conoce más: ${mode.title}`}>↗</a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <footer className="site-footer">
+        <a className="brand" href="#inicio"><span className="brand-mark">RL</span><span>ROCKET<span className="brand-light">LEAGUE</span></span></a>
+        <p>Nos vemos en la cancha.</p>
+        <a href="https://www.rocketleague.com/" target="_blank" rel="noreferrer">ROCKETLEAGUE.COM ↗</a>
+      </footer>
+    </main>
   );
 }
